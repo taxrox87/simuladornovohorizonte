@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulador Tributário | Novo Horizonte Alumínios</title>
+<meta name="description" content="Simulador tributário comercial B2B da Novo Horizonte Alumínios. Selecione o estado e informe o valor da venda para estimar o impacto do ICMS-ST.">
+<style>
+:root{--navy:#102a43;--blue:#1769aa;--soft:#eaf3fa;--border:#d9e2ec;--text:#243b53;--muted:#627d98;--white:#fff;--green:#e8f5e9}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);background:#f7f9fb}
+.page{max-width:820px;margin:auto;padding:28px 18px 50px}.hero{text-align:center;padding:18px 0 12px}
+.tag{display:inline-block;background:var(--green);color:#28652e;padding:6px 10px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.04em}
+h1{font-size:clamp(30px,6vw,52px);line-height:1.02;letter-spacing:-.04em;color:var(--navy);margin:16px 0 10px}
+.sub{max-width:650px;margin:auto;color:var(--muted);line-height:1.55}
+.card{background:var(--white);border:1px solid var(--border);border-radius:22px;padding:22px;margin-top:20px;box-shadow:0 8px 30px rgba(16,42,67,.06)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:13px;font-weight:800;color:var(--navy);margin-bottom:7px}
+input,select{width:100%;height:52px;border:1px solid var(--border);border-radius:12px;padding:0 14px;font-size:16px;color:var(--text);background:white}
+input:focus,select:focus{outline:3px solid var(--soft);border-color:var(--blue)}
+.help{font-size:11px;color:var(--muted);margin-top:6px}
+.results{margin-top:18px}.resultgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.result{border:1px solid var(--border);border-radius:14px;padding:15px}.k{font-size:11px;color:var(--muted)}.v{font-size:21px;font-weight:900;color:var(--navy);margin-top:5px;font-variant-numeric:tabular-nums}
+.main{margin-top:12px;background:var(--soft);border-radius:16px;padding:18px}.main .v{font-size:32px}
+.warning{margin-top:12px;padding:12px;border-radius:12px;background:#fff8e1;color:#735c00;font-size:12px;line-height:1.45}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.step{background:white;border:1px solid var(--border);border-radius:14px;padding:15px}.step b{color:var(--navy);font-size:13px}.step p{font-size:12px;line-height:1.4;color:var(--muted);margin:5px 0 0}
+footer{text-align:center;color:var(--muted);font-size:11px;margin-top:25px;line-height:1.5}
+@media(max-width:650px){.grid,.resultgrid,.steps{grid-template-columns:1fr}.page{padding:18px 13px 35px}.card{padding:17px}}
+</style>
+</head>
+<body>
+<main class="page">
+<section class="hero">
+<div class="tag">NOVO HORIZONTE ALUMÍNIOS • B2B</div>
+<h1>Descubra o impacto tributário da sua venda.</h1>
+<p class="sub">Escolha o estado de destino e informe o valor da mercadoria. O simulador apresenta um cenário aproximado para uma operação saindo do Paraná.</p>
+</section>
+
+<section class="card">
+<div class="grid">
+<div class="field">
+<label for="uf">Estado de destino</label>
+<select id="uf">
+<option value="">Selecione o estado...</option>
+<option value="AC|Acre|19|7|32">AC — Acre</option>
+<option value="AL|Alagoas|20.5|7|0">AL — Alagoas</option>
+<option value="AP|Amapá|18|7|36">AP — Amapá</option>
+<option value="AM|Amazonas|20|7|70">AM — Amazonas</option>
+<option value="BA|Bahia|20.5|7|35">BA — Bahia</option>
+<option value="CE|Ceará|20|7|45">CE — Ceará</option>
+<option value="DF|Distrito Federal|20|7|32">DF — Distrito Federal</option>
+<option value="ES|Espírito Santo|17|7|32">ES — Espírito Santo</option>
+<option value="GO|Goiás|19|7|0">GO — Goiás</option>
+<option value="MA|Maranhão|23|7|0">MA — Maranhão</option>
+<option value="MG|Minas Gerais|18|12|40">MG — Minas Gerais</option>
+<option value="MS|Mato Grosso do Sul|17|12|38">MS — Mato Grosso do Sul</option>
+<option value="MT|Mato Grosso|17|12|52.14">MT — Mato Grosso</option>
+<option value="PA|Pará|19|7|36">PA — Pará</option>
+<option value="PB|Paraíba|20|7|37">PB — Paraíba</option>
+<option value="PE|Pernambuco|20.5|7|38">PE — Pernambuco</option>
+<option value="PI|Piauí|22.5|7|0">PI — Piauí</option>
+<option value="PR|Paraná|19.5|19.5|39">PR — Paraná</option>
+<option value="RJ|Rio de Janeiro|20|12|38">RJ — Rio de Janeiro</option>
+<option value="RN|Rio Grande do Norte|20|7|0">RN — Rio Grande do Norte</option>
+<option value="RO|Rondônia|19.5|7|0">RO — Rondônia</option>
+<option value="RR|Roraima|20|7|0">RR — Roraima</option>
+<option value="RS|Rio Grande do Sul|17|12|44">RS — Rio Grande do Sul</option>
+<option value="SC|Santa Catarina|17|12|37">SC — Santa Catarina</option>
+<option value="SE|Sergipe|19|7|0">SE — Sergipe</option>
+<option value="SP|São Paulo|18|12|51">SP — São Paulo</option>
+<option value="TO|Tocantins|20|7|0">TO — Tocantins</option>
+</select>
+</div>
+<div class="field">
+<label for="valor">Valor da mercadoria (R$)</label>
+<input id="valor" type="number" min="0" step="0.01" value="100000" placeholder="Ex.: 100000">
+<div class="help">Digite o valor aproximado da venda.</div>
+</div>
+</div>
+
+<div id="results" class="results" hidden>
+<div class="resultgrid">
+<div class="result"><div class="k">ICMS interestadual</div><div id="inter" class="v">—</div></div>
+<div class="result"><div class="k">ICMS interno destino</div><div id="interno" class="v">—</div></div>
+<div class="result"><div class="k">MVA original</div><div id="mva" class="v">—</div></div>
+</div>
+<div class="resultgrid" style="margin-top:10px">
+<div class="result"><div class="k">MVA ajustada</div><div id="ajustada" class="v">—</div></div>
+<div class="result"><div class="k">Base ST estimada</div><div id="base" class="v">—</div></div>
+<div class="result"><div class="k">ICMS próprio</div><div id="proprio" class="v">—</div></div>
+</div>
+<div class="main">
+<div class="k">ICMS-ST estimado • cenário de referência</div>
+<div id="st" class="v">—</div>
+</div>
+<div class="warning" id="warning">Cenário padrão: NCM 7610 / CEST 10.071. Sem frete, seguro, IPI ou FCP. O resultado é uma estimativa comercial e precisa ser validado fiscalmente antes da emissão.</div>
+</div>
+</section>
+
+<section class="steps">
+<div class="step"><b>1. Escolha a UF</b><p>Informe onde o cliente receberá a mercadoria.</p></div>
+<div class="step"><b>2. Informe o valor</b><p>Use o valor aproximado da venda.</p></div>
+<div class="step"><b>3. Analise o impacto</b><p>Use o resultado para apoiar sua negociação.</p></div>
+</section>
+
+<footer>Novo Horizonte Alumínios • Simulador comercial tributário<br>Ferramenta de estimativa. A aplicação efetiva de ICMS-ST depende do produto, NCM/CEST, descrição, finalidade, cliente e legislação vigente.</footer>
+</main>
+
+<script>
+const uf=document.getElementById('uf'), valor=document.getElementById('valor'), results=document.getElementById('results');
+const money=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+function calc(){
+ const raw=uf.value;
+ const v=Math.max(0,Number(valor.value)||0);
+ if(!raw||v<=0){results.hidden=true;return}
+ const [sigla,nome,alStr,interStr,mvaStr]=raw.split('|');
+ const al=Number(alStr), inter=Number(interStr), mva=Number(mvaStr);
+ results.hidden=false;
+ document.getElementById('inter').textContent=inter.toFixed(1).replace('.',',')+'%';
+ document.getElementById('interno').textContent=al.toFixed(1).replace('.',',')+'%';
+ if(!mva){
+   document.getElementById('mva').textContent='Validar';
+   document.getElementById('ajustada').textContent='Validar';
+   document.getElementById('base').textContent='—';
+   document.getElementById('proprio').textContent=money(v*inter/100);
+   document.getElementById('st').textContent='Validar';
+   return;
+ }
+ if(sigla==='PR'){
+   const base=v*(1+mva/100), proprio=v*al/100, st=Math.max(0,base*al/100-proprio);
+   document.getElementById('mva').textContent=mva.toFixed(2).replace('.',',')+'%';
+   document.getElementById('ajustada').textContent=mva.toFixed(2).replace('.',',')+'%';
+   document.getElementById('base').textContent=money(base);
+   document.getElementById('proprio').textContent=money(proprio);
+   document.getElementById('st').textContent=money(st);
+   return;
+ }
+ const adj=(((1+mva/100)*(1-inter/100)/(1-al/100))-1)*100;
+ const base=v*(1+adj/100), presumida=base*al/100, proprio=v*inter/100, st=Math.max(0,presumida-proprio);
+ document.getElementById('mva').textContent=mva.toFixed(2).replace('.',',')+'%';
+ document.getElementById('ajustada').textContent=adj.toFixed(2).replace('.',',')+'%';
+ document.getElementById('base').textContent=money(base);
+ document.getElementById('proprio').textContent=money(proprio);
+ document.getElementById('st').textContent=money(st);
+}
+uf.addEventListener('change',calc); valor.addEventListener('input',calc);
+</script>
+</body>
+</html>
