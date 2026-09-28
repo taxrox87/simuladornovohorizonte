@@ -2,206 +2,246 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simulador Comercial Tributário | Novo Horizonte Alumínios</title>
-<meta name="description" content="Simulador comercial tributário para apoio à formação de preço em vendas B2B da Novo Horizonte Alumínios.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulador de Venda | Novo Horizonte Alumínios</title>
+<meta name="description" content="Simulador de venda B2B da Novo Horizonte Alumínios para estimar ICMS-ST e desembolso do comprador.">
 <style>
-:root{--navy:#0b1f33;--blue:#155eef;--ink:#16202a;--muted:#667085;--line:#e6e9ef;--bg:#f7f9fc;--card:#fff;--green:#087443;--amber:#9a6700}
-*{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-header{background:linear-gradient(135deg,#0b1f33,#173b60);color:white;padding:34px 18px}.wrap{max-width:1100px;margin:auto}
-.badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:6px 10px;border-radius:999px;font-size:12px}
-h1{font-size:clamp(28px,5vw,46px);margin:14px 0 8px}.sub{color:#dbe7f3;max-width:850px;line-height:1.55}
-main{max-width:1100px;margin:24px auto 50px;padding:0 18px}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 4px 18px rgba(16,24,40,.05)}
-.card h2{font-size:18px;margin:0 0 14px}label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px}
-select,input{width:100%;padding:13px 12px;border:1px solid #cfd6df;border-radius:10px;background:white;font-size:16px;outline:none}
-select:focus,input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,94,239,.12)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.help{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.45}
-.resultgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.result{border:1px solid var(--line);background:#fbfcfe;border-radius:12px;padding:13px}
-.k{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}.v{font-size:18px;font-weight:800;margin-top:4px}
-.mainresult{margin-top:10px;border-radius:14px;padding:18px;background:#edf4ff;border:1px solid #cfe0ff}.mainresult .v{font-size:28px;color:#0b4ec2}
-.note{border-left:4px solid var(--blue);background:#f3f7ff;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.55;margin-top:12px}
-.alert{border-left:4px solid #c58a00;background:#fff9e8;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.55;margin-top:12px}
-.success{border-left:4px solid #0a7f4f;background:#effbf5;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.55;margin-top:12px}
-.benefits{display:grid;grid-template-columns:1fr 1fr;gap:10px}.benefit{padding:12px;border:1px solid var(--line);border-radius:12px;background:white}
-.benefit b{display:block;margin-bottom:5px}.pill{font-size:11px;padding:4px 7px;border-radius:999px;display:inline-block;background:#f1f5f9;color:#334155}
-details summary{cursor:pointer;font-weight:800}footer{max-width:1100px;margin:0 auto 30px;padding:0 18px;color:#667085;font-size:12px;line-height:1.6}
-hr{border:0;border-top:1px solid var(--line);margin:18px 0}.smallgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:860px){.grid,.resultgrid,.benefits,.smallgrid,.two,.three{grid-template-columns:1fr}}
+:root{
+ --navy:#0b1f33;--navy2:#123a5f;--blue:#155eef;--ink:#16202a;
+ --muted:#667085;--line:#e6e9ef;--bg:#f7f9fc;--card:#fff;
+ --green:#087443;--amber:#9a6700;--amberbg:#fff9e8;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:42px 18px 38px}
+.wrap{max-width:980px;margin:auto}
+.badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);padding:7px 10px;border-radius:999px}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:16px 0 10px}
+.hero{font-size:16px;line-height:1.55;color:#dce8f4;max-width:800px}
+main{max-width:980px;margin:24px auto 50px;padding:0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 5px 24px rgba(16,24,40,.05)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-size:13px;font-weight:800;margin:13px 0 6px}
+select,input{width:100%;padding:14px 12px;border:1px solid #ccd4de;border-radius:11px;background:#fff;font-size:16px;color:var(--ink)}
+select:focus,input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,94,239,.12)}
+.help{font-size:12px;color:var(--muted);line-height:1.5;margin-top:6px}
+.kicker{font-size:11px;text-transform:uppercase;font-weight:900;letter-spacing:.08em;color:var(--muted)}
+h2{font-size:19px;margin:0 0 10px}
+.resultgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.result{border:1px solid var(--line);background:#fbfcfe;border-radius:13px;padding:14px}
+.v{font-size:19px;font-weight:900;margin-top:5px}
+.total{margin-top:14px;background:#edf4ff;border:1px solid #cfe0ff;border-radius:15px;padding:19px}
+.total .v{font-size:32px;color:#0b4ec2}
+.status{margin-top:12px;padding:13px 14px;border-left:4px solid var(--blue);background:#f3f7ff;border-radius:10px;font-size:13px;line-height:1.55}
+.warn{margin-top:12px;padding:13px 14px;border-left:4px solid #c58a00;background:var(--amberbg);border-radius:10px;font-size:13px;line-height:1.55}
+.good{margin-top:12px;padding:13px 14px;border-left:4px solid var(--green);background:#effbf5;border-radius:10px;font-size:13px;line-height:1.55}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.chip{font-size:11px;font-weight:800;padding:6px 8px;background:#f2f4f7;border-radius:999px}
+hr{border:0;border-top:1px solid var(--line);margin:19px 0}
+.small{font-size:11px;color:var(--muted);line-height:1.55}
+footer{max-width:980px;margin:0 auto 30px;padding:0 18px;color:var(--muted);font-size:11px;line-height:1.65}
+@media(max-width:720px){.grid,.resultgrid{grid-template-columns:1fr}.total .v{font-size:28px}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><span class="badge">NOVO HORIZONTE ALUMÍNIOS</span>
-<h1>Simulador Comercial Tributário</h1>
-<div class="sub">Estime o impacto de ICMS, ICMS-ST, benefícios informados pelo fiscal e condições comerciais antes de fechar uma proposta B2B.</div></div></header>
+<header>
+<div class="wrap">
+<span class="badge">NOVO HORIZONTE ALUMÍNIOS</span>
+<h1>Simulador de venda</h1>
+<div class="hero">Informe o destino e o valor da venda para estimar o impacto tributário da operação e o desembolso do comprador. Feito para apoiar a proposta comercial e evitar surpresas com ICMS-ST.</div>
+</div>
+</header>
 
 <main>
-<div class="grid">
 <section class="card">
-<h2>1. Dados da operação</h2>
-<div class="two">
-<div><label for="op">Operação</label><select id="op"><option value="venda">Venda</option><option value="compra">Compra</option></select></div>
-<div><label for="finalidade">Finalidade</label><select id="finalidade"><option value="revenda">Revenda</option><option value="industrializacao">Industrialização</option><option value="obra">Aplicação na obra</option><option value="uso">Uso/consumo</option><option value="ativo">Ativo imobilizado</option></select></div>
+<div class="kicker">1. Venda</div>
+<h2>Dados da proposta</h2>
+<div class="grid">
+<div>
+<label for="destino">Estado de entrega</label>
+<select id="destino"></select>
+<div class="help">A alíquota interestadual é determinada pela origem PR e pelo destino.</div>
 </div>
-<div class="two">
-<div><label for="origem">UF de origem</label><select id="origem"></select></div>
-<div><label for="destino">UF de destino</label><select id="destino"></select></div>
+<div>
+<label for="valor">Valor da mercadoria (R$)</label>
+<input id="valor" type="number" min="0" step="0.01" value="100000">
+<div class="help">Use o valor líquido da mercadoria antes da ST.</div>
 </div>
-<label for="produto">Produto / grupo fiscal</label><select id="produto"></select>
-<div class="help">O cálculo de ST depende de NCM/CEST, descrição, finalidade, operação e regra da UF. Quando a MVA não estiver cadastrada, o resultado será marcado como “validar”.</div>
-<div class="two">
-<div><label for="valor">Valor da mercadoria (R$)</label><input id="valor" type="number" min="0" step="0.01" value="100000"></div>
-<div><label for="frete">Frete/seguro/outros (R$)</label><input id="frete" type="number" min="0" step="0.01" value="0"></div>
 </div>
 
-<hr>
-<h2>2. Benefícios / regime especial</h2>
-<div class="help">Deixe em 0% quando o benefício não estiver confirmado pelo fiscal. O campo existe para incorporar o ato da empresa assim que o percentual/regra for confirmado.</div>
-<div class="three">
-<div><label for="reducao">Redução de base (%)</label><input id="reducao" type="number" min="0" max="100" step="0.01" value="0"></div>
-<div><label for="presumido">Crédito presumido (%)</label><input id="presumido" type="number" min="0" max="100" step="0.01" value="0"></div>
-<div><label for="diferido">Diferimento (%)</label><input id="diferido" type="number" min="0" max="100" step="0.01" value="0"></div>
-</div>
-<div class="help">Esses campos são uma simulação comercial genérica. O TARE/regime especial real pode usar outra mecânica; não aplique percentual sem confirmação documental.</div>
+<label for="produto">Produto / classificação</label>
+<select id="produto"></select>
+<div class="help">A ST depende do NCM/CEST e da descrição. O mesmo material de alumínio pode ter tratamento diferente conforme a classificação.</div>
 
-<div class="smallgrid">
-<div><label for="credCompra">ICMS de crédito na compra (%)</label><input id="credCompra" type="number" min="0" max="100" step="0.01" value="0"></div>
-<div><label for="ipi">IPI confirmado para este NCM (%)</label><input id="ipi" type="number" min="0" max="100" step="0.01" value="0"></div>
+<div class="grid">
+<div>
+<label for="comprador">Perfil do comprador</label>
+<select id="comprador">
+<option value="contribuinte">Contribuinte de ICMS / revenda</option>
+<option value="nao">Consumidor final não contribuinte</option>
+</select>
 </div>
-<div class="help">O IPI varia por NCM. A TIPI oficial precisa ser consultada para o código efetivo; o simulador não presume 0% para todo o Capítulo 76.</div>
+<div>
+<label for="frete">Frete/seguro/outros na operação (R$)</label>
+<input id="frete" type="number" min="0" step="0.01" value="0">
+<div class="help">Deixe 0 quando não houver valor a considerar na base.</div>
+</div>
+</div>
 </section>
 
-<aside class="card">
-<h2>Informações encontradas para a Novo Horizonte</h2>
-<div class="benefits">
-<div class="benefit"><span class="pill">CONFIRMADO</span><b>SISCRED</b>Credencial pública encontrada: <strong>D-0007856-54</strong>. Isso não significa, sozinho, que exista crédito disponível para esta venda; a utilização depende da situação fiscal e da operação.</div>
-<div class="benefit"><span class="pill">CONFIRMAR POR NCM</span><b>IPI</b>A TIPI precisa ser consultada pelo NCM efetivo. O simulador não presume IPI 0% automaticamente.</div>
-<div class="benefit"><span class="pill">NÃO LOCALIZADO PUBLICAMENTE</span><b>TARE / Regime Especial</b>Nenhum percentual específico da Novo Horizonte foi localizado em fonte pública acessível. O campo de benefício fica preparado para receber o dado do fiscal.</div>
-<div class="benefit"><span class="pill">CONDICIONADO</span><b>Crédito presumido / diferimento</b>Só devem ser aplicados quando o enquadramento e a regra estiverem confirmados no ato aplicável.</div>
+<section class="card" style="margin-top:16px">
+<div class="kicker">2. Resultado para informar ao comprador</div>
+<div class="resultgrid">
+<div class="result"><div class="kicker">ICMS interestadual</div><div id="rInter" class="v">—</div></div>
+<div class="result"><div class="kicker">ICMS interno destino</div><div id="rInterno" class="v">—</div></div>
+<div class="result"><div class="kicker">MVA original</div><div id="rMva" class="v">—</div></div>
 </div>
-<div class="note"><strong>Por que isso importa para vendas?</strong><br>O objetivo é mostrar o desembolso estimado do cliente, separar ICMS próprio de ST e evitar comparar preços de concorrentes em bases tributárias diferentes.</div>
-<div class="success"><strong>ST na negociação:</strong><br>nas operações em que há ICMS-ST, a informação comercial da empresa indica que a Novo Horizonte gera a GNRE e recolhe o imposto; isso reforça a necessidade de comparar o preço total da operação, e não apenas o preço líquido da mercadoria.</div>
-<div class="alert"><strong>Frete também entra na negociação:</strong><br>a política comercial pode mudar por região. O frete não é benefício fiscal, mas pode mudar o preço efetivo da operação.</div>
-</aside>
+<div class="resultgrid">
+<div class="result"><div class="kicker">MVA ajustada</div><div id="rAdj" class="v">—</div></div>
+<div class="result"><div class="kicker">Base ST</div><div id="rBase" class="v">—</div></div>
+<div class="result"><div class="kicker">ICMS próprio estimado</div><div id="rOwn" class="v">—</div></div>
 </div>
 
-<section class="card" style="margin-top:18px">
-<h2>Resultado</h2><div id="status" class="help">Preencha os campos acima para calcular.</div>
-<div class="resultgrid" style="margin-top:12px">
-<div class="result"><div class="k">ICMS interestadual</div><div id="rInter" class="v">—</div></div>
-<div class="result"><div class="k">ICMS interno destino</div><div id="rInterno" class="v">—</div></div>
-<div class="result"><div class="k">MVA original</div><div id="rMva" class="v">—</div></div>
+<div class="total">
+<div class="kicker">ICMS-ST estimado</div>
+<div id="rSt" class="v">—</div>
+<div class="help">Este é o valor adicional estimado da ST para o comprador, quando a operação estiver sujeita à retenção.</div>
 </div>
-<div class="resultgrid" style="margin-top:10px">
-<div class="result"><div class="k">MVA ajustada</div><div id="rAdj" class="v">—</div></div>
-<div class="result"><div class="k">Base ST estimada</div><div id="rBase" class="v">—</div></div>
-<div class="result"><div class="k">ICMS próprio</div><div id="rOwn" class="v">—</div></div>
+
+<div class="resultgrid">
+<div class="result"><div class="kicker">Mercadoria</div><div id="rVal" class="v">—</div></div>
+<div class="result"><div class="kicker">Frete / outros</div><div id="rFrete" class="v">—</div></div>
+<div class="result"><div class="kicker">Desembolso estimado</div><div id="rTotal" class="v">—</div></div>
 </div>
-<div class="resultgrid" style="margin-top:10px">
-<div class="result"><div class="k">Impacto do benefício no ICMS próprio</div><div id="rBenefit" class="v">—</div></div>
-<div class="result"><div class="k">ICMS diferido estimado</div><div id="rDeferred" class="v">—</div></div>
-<div class="result"><div class="k">Crédito estimado na compra</div><div id="rCredit" class="v">—</div></div>
+
+<div id="status" class="status">Aguardando cálculo.</div>
+<div id="warning" class="warn" style="display:none"></div>
+<div class="chips">
+<span class="chip">Atualização: 28/09/2026</span>
+<span class="chip">Origem: Paraná</span>
+<span class="chip">Venda B2B</span>
+<span class="chip">ICMS-ST: estimativa</span>
 </div>
-<div class="mainresult"><div class="k">ICMS-ST estimado</div><div id="rSt" class="v">—</div>
-<div class="help">A ST permanece marcada como estimativa quando não houver MVA cadastrada ou quando o produto/regra exigir validação fiscal.</div></div>
-<div class="resultgrid" style="margin-top:10px">
-<div class="result"><div class="k">Valor da mercadoria</div><div id="rVal" class="v">—</div></div>
-<div class="result"><div class="k">Frete/seguro/outros</div><div id="rFrete" class="v">—</div></div>
-<div class="result"><div class="k">Desembolso estimado</div><div id="rTotal" class="v">—</div></div>
-</div>
-<div id="warning" class="alert" style="display:none"></div>
 </section>
 
-<section class="card" style="margin-top:18px"><details><summary>Como usar comercialmente</summary>
-<div class="help" style="margin-top:10px">1) escolha venda ou compra; 2) informe a UF de origem e destino; 3) selecione o grupo de produto; 4) coloque o valor; 5) só preencha benefício fiscal quando o fiscal tiver confirmado a regra. Na venda B2B, use o desembolso total para comparar propostas. Na compra, use o campo de crédito apenas como simulação e não como crédito fiscal garantido.</div>
-</details></section>
+<section class="card" style="margin-top:16px">
+<h2>O que esta tela evita</h2>
+<div class="good"><strong>Comparação errada de preço:</strong> o comprador consegue visualizar o valor da mercadoria e o ICMS-ST estimado separadamente, evitando comparar uma proposta “sem ST” com outra “com ST”.</div>
+<div class="warn"><strong>Benefício/TARE:</strong> nenhum percentual específico de TARE ou regime especial da Novo Horizonte foi encontrado publicamente e, por isso, não foi inventado no cálculo. Se o fiscal informar um tratamento específico, ele deve ser incorporado ao motor antes de usar a ferramenta como cálculo comercial definitivo.</div>
+<div class="warn"><strong>Comprador não contribuinte:</strong> o simulador não força um cálculo de DIFAL/FCP, porque essa operação tem regras próprias e depende da finalidade e da situação do destinatário. Ela fica sinalizada para validação fiscal.</div>
+</section>
 </main>
 
-<footer><strong>Novo Horizonte Alumínios — Simulador Comercial Tributário</strong><br>
-Esta ferramenta é de apoio comercial e não substitui o ERP, a apuração fiscal ou orientação do responsável tributário. O cálculo de ICMS-ST depende de NCM/CEST, descrição, finalidade, origem/destino, cliente, MVA, benefícios e legislação vigente.<br>
-Fontes oficiais para a estrutura: Receita Estadual/PR — alíquota interna geral de 19,5% para as demais mercadorias; CONFAZ/NF-e — regra interestadual de 7%/12%; Receita Federal — TIPI/Capítulo 76.
+<footer>
+<strong>Novo Horizonte Alumínios — Simulador de venda</strong><br>
+Ferramenta de apoio comercial. Não substitui a apuração fiscal, o ERP, a conferência do NCM/CEST ou a validação da regra da UF de destino. O CEST 10.071.00, por exemplo, está associado aos NCM 7610.10.00 e 7610.90.00 e integra o segmento de materiais de construção do Convênio ICMS 142/2018; a existência de CEST não significa, isoladamente, que haverá retenção em toda operação. 
+<br><br>
+Fontes consultadas: CONFAZ/NF-e para a regra interestadual de 7%/12%; legislação do Paraná para alíquota interna de 19,5%; bases 2026 de MVA por CEST consolidadas a partir de planilhas do Portal Nacional da ST e legislação estadual. As MVAs marcadas como referência não devem ser tratadas como valor definitivo sem conferência.
 </footer>
 
 <script>
 const states = [{"uf": "AC", "name": "Acre", "internal": 19.0, "inter": 7}, {"uf": "AL", "name": "Alagoas", "internal": 20.5, "inter": 7}, {"uf": "AP", "name": "Amapá", "internal": 18.0, "inter": 7}, {"uf": "AM", "name": "Amazonas", "internal": 20.0, "inter": 7}, {"uf": "BA", "name": "Bahia", "internal": 20.5, "inter": 7}, {"uf": "CE", "name": "Ceará", "internal": 20.0, "inter": 7}, {"uf": "DF", "name": "Distrito Federal", "internal": 20.0, "inter": 7}, {"uf": "ES", "name": "Espírito Santo", "internal": 17.0, "inter": 7}, {"uf": "GO", "name": "Goiás", "internal": 19.0, "inter": 7}, {"uf": "MA", "name": "Maranhão", "internal": 23.0, "inter": 7}, {"uf": "MG", "name": "Minas Gerais", "internal": 18.0, "inter": 12}, {"uf": "MS", "name": "Mato Grosso do Sul", "internal": 17.0, "inter": 7}, {"uf": "MT", "name": "Mato Grosso", "internal": 17.0, "inter": 7}, {"uf": "PA", "name": "Pará", "internal": 19.0, "inter": 7}, {"uf": "PB", "name": "Paraíba", "internal": 20.0, "inter": 7}, {"uf": "PE", "name": "Pernambuco", "internal": 20.5, "inter": 7}, {"uf": "PI", "name": "Piauí", "internal": 22.5, "inter": 7}, {"uf": "PR", "name": "Paraná", "internal": 19.5, "inter": null}, {"uf": "RJ", "name": "Rio de Janeiro", "internal": 20.0, "inter": 12}, {"uf": "RN", "name": "Rio Grande do Norte", "internal": 20.0, "inter": 7}, {"uf": "RO", "name": "Rondônia", "internal": 19.5, "inter": 7}, {"uf": "RR", "name": "Roraima", "internal": 20.0, "inter": 7}, {"uf": "RS", "name": "Rio Grande do Sul", "internal": 17.0, "inter": 12}, {"uf": "SC", "name": "Santa Catarina", "internal": 17.0, "inter": 12}, {"uf": "SE", "name": "Sergipe", "internal": 19.0, "inter": 7}, {"uf": "SP", "name": "São Paulo", "internal": 18.0, "inter": 12}, {"uf": "TO", "name": "Tocantins", "internal": 20.0, "inter": 7}];
-const products = [{"ncm": "7610", "cest": "10.071.00", "desc": "Construções e partes de alumínio; portas, janelas, perfis e semelhantes"}, {"ncm": "7608", "cest": "10.069.00", "desc": "Tubos de alumínio para construção/refrigeração"}, {"ncm": "7609.00.00", "cest": "10.070.00", "desc": "Acessórios para tubos de alumínio"}, {"ncm": "7607.19.90", "cest": "10.068.00", "desc": "Manta de subcobertura aluminizada"}, {"ncm": "7616", "cest": "10.073.00", "desc": "Outras obras de alumínio próprias para construção"}, {"ncm": "7615.20.00", "cest": "10.072.00", "desc": "Artefatos de higiene/toucador de alumínio"}];
-const mva7610 = {"AC": 32, "AP": 36, "AM": 70, "BA": 35, "CE": 45, "DF": 32, "ES": 32, "MG": 40, "MS": 38, "MT": 52.14, "PA": 36, "PB": 37, "PE": 38, "PR": 39, "RJ": 38, "RS": 44, "SC": 37, "SP": 51};
+const products = [{"id": "7610", "name": "Perfis, portas, janelas e construções de alumínio", "ncm": "7610.10.00 / 7610.90.00", "cest": "10.071.00", "ipi": "0%", "mva": {"AC": 32, "AM": 70, "AP": 36, "BA": 35, "CE": 45, "DF": 32, "ES": 32, "MG": 40, "MS": 38, "MT": 52.14, "PA": 36, "PB": 37, "PE": 38, "PR": 39, "RJ": 38, "RS": 44, "SC": 37, "SP": 51}, "reference": ["CE", "PB", "SC"], "conditional": ["MT"]}, {"id": "7609", "name": "Acessórios para tubos de alumínio", "ncm": "7609.00.00", "cest": "10.070.00", "ipi": "3,25%", "mva": {"AC": 40, "AM": 70, "AP": 40, "BA": 65, "CE": 45, "DF": 40, "ES": 40, "MG": 55, "MS": 38, "MT": 52.14, "PA": 40, "PB": 37, "PE": 66, "PR": 58, "RJ": 66, "RS": 80, "SC": 37, "SP": 139}, "reference": ["CE", "PB", "SC"], "conditional": ["MT"]}, {"id": "7616", "name": "Outras obras de alumínio para construção", "ncm": "7616.10.00 / 7616.91.00 / 7616.99.00", "cest": "10.073.00", "ipi": "6,5% / 3,25% conforme NCM", "mva": {"AC": 37, "AM": 70, "AP": 37, "BA": 45, "CE": 45, "DF": 37, "ES": 37, "MG": 45, "MS": 38, "MT": 52.14, "PA": 37, "PB": 37, "PE": 45, "PR": 45, "RJ": 45, "RS": 81, "SC": 37}, "reference": ["CE", "PB", "SC"], "conditional": ["MT"], "sp_range": true}, {"id": "7608", "name": "Tubos de alumínio para construção/refrigeração", "ncm": "7608", "cest": "10.069.00", "ipi": "consultar NCM", "mva": {"AC": 40, "AM": 70, "AP": 45, "BA": 65, "MG": 75, "MS": 38, "MT": 52.14, "PA": 45, "RJ": 44.53, "SP": 179}, "reference": [], "conditional": ["MT"]}, {"id": "7607", "name": "Manta de subcobertura aluminizada", "ncm": "7607.19.90", "cest": "10.068.00", "ipi": "consultar NCM", "mva": {"AP": 34, "BA": 55, "ES": 34, "MG": 50, "MS": 38, "PA": 34, "PE": 59, "PR": 75, "RJ": 59, "SP": 179}, "reference": [], "conditional": []}];
 const $ = id => document.getElementById(id);
 const money = n => Number(n||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 const pct = n => Number(n||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}) + '%';
-const origem=$('origem'), destino=$('destino'), produto=$('produto');
 
-function fillSelects(){
-  states.forEach(s=>{
-    const o=document.createElement('option'); o.value=s.uf; o.textContent=`${s.uf} — ${s.name}`; origem.appendChild(o);
-    destino.appendChild(o.cloneNode(true));
-  });
-  origem.value='PR'; destino.value='SP';
-  products.forEach((p,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${p.ncm} | CEST ${p.cest} | ${p.desc}`;produto.appendChild(o);});
-}
-function state(uf){return states.find(s=>s.uf===uf);}
+const destino = $('destino');
+const produto = $('produto');
+
+states.forEach(s=>{
+  const o=document.createElement('option');
+  o.value=s.uf;
+  o.textContent=`${s.uf} — ${s.name}`;
+  destino.appendChild(o);
+});
+destino.value='SP';
+
+products.forEach((p,i)=>{
+  const o=document.createElement('option');
+  o.value=i;
+  o.textContent=`${p.ncm} | CEST ${p.cest} | ${p.name}`;
+  produto.appendChild(o);
+});
+produto.value='0';
+
+function getState(uf){return states.find(s=>s.uf===uf)}
 function calc(){
-  const op=$('op').value, o=state(origem.value), d=state(destino.value);
+  const d=getState(destino.value);
   const p=products[Number(produto.value)||0];
-  const v=Math.max(0,Number($('valor').value)||0), frete=Math.max(0,Number($('frete').value)||0);
-  const reducao=Math.min(100,Math.max(0,Number($('reducao').value)||0));
-  const presumido=Math.min(100,Math.max(0,Number($('presumido').value)||0));
-  const diferido=Math.min(100,Math.max(0,Number($('diferido').value)||0));
-  const credCompra=Math.min(100,Math.max(0,Number($('credCompra').value)||0));
-  const ipi=Math.max(0,Number($('ipi').value)||0);
-  if(v<=0){$('status').textContent='Informe um valor de mercadoria para calcular.';return;}
+  const value=Math.max(0,Number($('valor').value)||0);
+  const freight=Math.max(0,Number($('frete').value)||0);
+  const buyer=$('comprador').value;
 
-  const inter=(origem.value===destino.value)?d.internal:(d.inter??12);
-  const internalRate=d.internal, baseValor=v+frete;
-  const ownRate=(origem.value===destino.value)?o.internal:inter;
-
-  const ownBase=baseValor*(1-reducao/100);
-  const ownGross=ownBase*ownRate/100;
-  const creditBenefit=ownGross*presumido/100;
-  const ownAfter=Math.max(0,ownGross-creditBenefit);
-  const deferred=ownAfter*diferido/100;
-  const ownDue=Math.max(0,ownAfter-deferred);
-
-  let mva=null, adj=null, stBase=null, st=null, warning=[];
-  if(p.ncm==='7610' && mva7610[d.uf]!=null)mva=Number(mva7610[d.uf]);
-
-  if(op==='venda' && mva!=null){
-    if(origem.value!==destino.value) adj=(((1+mva/100)*(1-inter/100)/(1-internalRate/100))-1)*100;
-    else adj=mva;
-    stBase=baseValor*(1+adj/100);
-    const presumed=stBase*internalRate/100;
-    st=Math.max(0,presumed-ownDue);
-  }else if(op==='venda'){
-    warning.push('MVA não cadastrada para este NCM/CEST e UF; ST precisa ser validada no fiscal/ERP.');
+  if(!d || value<=0){
+    $('status').textContent='Informe um valor válido para calcular.';
+    return;
   }
 
-  const estimatedTotal=baseValor+(st||0)+(ipi?baseValor*ipi/100:0);
-  const purchaseCredit=op==='compra'?baseValor*credCompra/100:0;
+  const interstate=d.inter===null ? d.internal : d.inter;
+  const internal=d.internal;
+  const mva=p.mva[d.uf];
+  const isReference=(p.reference||[]).includes(d.uf);
+  const isConditional=(p.conditional||[]).includes(d.uf);
 
-  $('rInter').textContent=pct(inter); $('rInterno').textContent=pct(internalRate);
-  $('rMva').textContent=mva==null?'Validar':pct(mva); $('rAdj').textContent=adj==null?'Validar':pct(adj);
-  $('rBase').textContent=stBase==null?'—':money(stBase); $('rOwn').textContent=money(ownGross);
-  $('rBenefit').textContent=(creditBenefit>0||reducao>0)?money(ownGross-ownAfter):'R$ 0,00';
-  $('rDeferred').textContent=deferred>0?money(deferred):'R$ 0,00';
-  $('rCredit').textContent=op==='compra'?money(purchaseCredit):'—';
+  const baseValue=value+freight;
+  let adjusted=null, stBase=null, own=baseValue*interstate/100, st=null;
+  let messages=[];
+
+  if(d.uf==='PR'){
+    $('rInter').textContent=pct(internal);
+  }else{
+    $('rInter').textContent=pct(interstate);
+  }
+  $('rInterno').textContent=pct(internal);
+
+  if(mva!=null && d.uf==='PR'){
+    adjusted=mva;
+    stBase=baseValue*(1+adjusted/100);
+    st=Math.max(0,stBase*internal/100-own);
+  }else if(mva!=null && d.uf!=='PR'){
+    adjusted=(((1+mva/100)*(1-interstate/100)/(1-internal/100))-1)*100;
+    stBase=baseValue*(1+adjusted/100);
+    st=Math.max(0,stBase*internal/100-own);
+  }else{
+    messages.push('MVA atual não carregada para este CEST/UF; não foi estimado ICMS-ST para evitar informar um número sem base suficiente.');
+  }
+
+  $('rMva').textContent=mva==null?'Validar':pct(mva)+(isReference?' (ref.)':'')+(isConditional?' *':'');
+  $('rAdj').textContent=adjusted==null?'Validar':pct(adjusted);
+  $('rBase').textContent=stBase==null?'—':money(stBase);
+  $('rOwn').textContent=money(own);
   $('rSt').textContent=st==null?'Validar':money(st);
-  $('rVal').textContent=money(v); $('rFrete').textContent=money(frete);
-  $('rTotal').textContent=op==='venda'?money(estimatedTotal):money(baseValor);
-  $('status').textContent=`Cenário: ${op==='venda'?'venda':'compra'} | ${p.ncm} | CEST ${p.cest} | ${origem.value} → ${destino.value}`;
+  $('rVal').textContent=money(value);
+  $('rFrete').textContent=money(freight);
+  $('rTotal').textContent=st==null?money(baseValue):money(baseValue+st);
 
-  if(op==='compra')warning.push('Crédito na compra é apenas simulação: depende da documentação, origem, finalidade e regras de apropriação.');
-  if(diferido>0)warning.push('Diferimento não é automaticamente redução definitiva de carga; representa postergação conforme a regra aplicável.');
-  if(ipi>0)warning.push('IPI foi informado manualmente. Confira o NCM efetivo na TIPI antes de usar o resultado.');
+  const buyerText = buyer==='contribuinte'
+    ? 'Comprador contribuinte/revenda: cenário de ST estimada.'
+    : 'Comprador não contribuinte: DIFAL/FCP precisam de validação específica antes da proposta.';
+
+  $('status').innerHTML =
+    `<strong>${p.name}</strong> • NCM ${p.ncm} • CEST ${p.cest}<br>` +
+    `${destino.value} — ${d.name} • ${buyerText}` +
+    (p.ipi ? `<br>IPI de referência do produto: ${p.ipi}.` : '');
+
+  if(isReference){
+    messages.push('A MVA utilizada está marcada como referência do segmento, não como valor oficial específico desta UF. Confirme no RICMS/ato aplicável antes de emitir.');
+  }
+  if(isConditional){
+    messages.push('MT: a fonte indica condição de aplicação da MVA de 52,14% ligada ao crédito outorgado/Simples. Confirme o enquadramento da operação.');
+  }
+  if(buyer!=='contribuinte'){
+    messages.push('DIFAL/FCP não calculados automaticamente neste modo.');
+  }
+  messages.push('A existência do CEST não significa, sozinha, que haverá retenção de ST em toda venda; é preciso verificar a regra da UF de destino, a finalidade e o enquadramento da operação.');
 
   const w=$('warning');
-  if(warning.length){w.style.display='block';w.innerHTML='<strong>Validações:</strong><br>• '+warning.join('<br>• ');}
-  else{w.style.display='none';w.textContent='';}
+  w.style.display='block';
+  w.innerHTML='<strong>Atenção comercial:</strong><br>• '+messages.join('<br>• ');
 }
-
-fillSelects();
-['op','finalidade','origem','destino','produto','valor','frete','reducao','presumido','diferido','credCompra','ipi'].forEach(id=>{
-  $(id).addEventListener(['valor','frete','reducao','presumido','diferido','credCompra','ipi'].includes(id)?'input':'change',calc);
+['valor','frete','destino','produto','comprador'].forEach(id=>{
+  $(id).addEventListener(['valor','frete'].includes(id)?'input':'change',calc);
 });
 calc();
 </script>
